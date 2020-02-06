@@ -1,6 +1,5 @@
 package com.example.project.models;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 
@@ -66,5 +65,11 @@ public class Task {
 
     public void setCreatedAt(Time createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Task(String title, String description, String status) {
+        this.title = title;
+        this.description = description;
+        this.status = status;
     }
 }
