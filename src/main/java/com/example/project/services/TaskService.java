@@ -5,6 +5,8 @@ import com.example.project.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TaskService {
 
@@ -22,6 +24,14 @@ public class TaskService {
     }
 
     public Task getATask(Long id){
-        return taskRepository.getOne(id);
+        return taskRepository.findById(id).orElse(null);
+    }
+
+    public List<Task> getAllTask() {
+        return taskRepository.findAll();
+    }
+
+    public List<Task> findByStatus(String status) {
+        return taskRepository.findByStatus(status);
     }
 }
